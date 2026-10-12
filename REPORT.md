@@ -74,12 +74,6 @@ Delta `overwrite` theo partition (`replaceWhere trip_id = ...`) là **một comm
 ### Câu 5
 Khung hình **đen** và khung hình **tối** khác nhau thế nào, pipeline xử lý khác nhau ra sao, bạn có đồng ý không? Dựa vào `threshold.json`: nếu chọn ngưỡng 0, 2, 6 thì bao nhiêu khung bị coi là trùng ở mỗi drive? Bạn chọn ngưỡng nào, vì sao, và ngưỡng đó phụ thuộc vào tốc độ xe thế nào?
 
-| dHash khác tối đa | số khung trùng, drive A | số khung trùng, drive B |
-|---|---|---|
-| 0 | | |
-| 2 | | |
-| 6 | | |
-
 **Khung đen** là khung hỏng (camera/encoder lỗi, gần như toàn pixel đen): không có thông tin, pipeline **loại** khỏi gold. **Khung tối** là cảnh thật nhưng thiếu sáng (đường hầm, bóng râm): pipeline chỉ **gắn cờ và giữ lại**. Số của mình: drive_a 6 đen, 4 tối giữ lại; drive_b 4 đen, **61 tối giữ lại**. Mình đồng ý: mô hình xe tự lái phải học cả cảnh thiếu sáng; bỏ chúng thì dataset lệch về điều kiện đẹp, và cờ vẫn cho phép lọc sau nếu cần.
 
 `threshold.json` (số khung bị coi là trùng):
